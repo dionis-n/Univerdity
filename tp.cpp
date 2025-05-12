@@ -1,30 +1,27 @@
 #include <iostream>
-#include <cmath>
 #include <string>
+#include <cmath>
 
-using namespace std;
-
-template <typename T> const T _pow(const T& x1, size_t n)
+template <typename T> const T _pow(const T& x, int n)
 {
-	return pow(x1, n);
+    return pow(x, n);
 }
 
 template<>
-const string _pow(const string& x1, size_t n)
+const std::string _pow(const std::string& x, int n)
 {
-	string ss = "";
-	for (int i = 0; i < n; i++)
-	{
-		ss += x1;
-	}
-	return ss;
+    std::string ss = "";
+    for (int i = 0; i < n; i++)
+    {
+        ss += x;
+    }
+    return ss;
 }
 
 int main()
 {
-	cout << _pow(2,5) << endl;
-	cout << _pow(2.5f ,5) << endl;
-	cout << _pow<string>("String", 5) << endl;
-
-	return 0;
+    std::cout << _pow(5, 3) << std::endl;
+    std::string str = "one";
+    std::cout << _pow(str, 5) << std::endl;
+    return 0;
 }

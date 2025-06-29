@@ -46,6 +46,11 @@ class Optional
             return *this;
         }
 
+        operator bool() noexcept
+        {
+            return value != nullptr;
+        }
+
         T get_value()
         {
             if (value == nullptr)
